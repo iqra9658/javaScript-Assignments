@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+</head>
+<body>
+    <input type="text" id="text" placeholder="Enter your task here!">
+<button id="btn">Submit</button>
+<ul id="tasklist">
+</ul>
+
+<script>
+ const taskInput= document.querySelector('#text');
+ const SubmitButton=document.querySelector('#btn');
+ const taskList=document.querySelector('#tasklist');
+ SubmitButton.addEventListener('click',()=>{
+    const taskText=taskInput.value;
+    if(taskText===""){
+        return;
+    }
+    const taskItem=document.createElement('li');
+    taskItem.textContent=taskText;
+    taskList.appendChild(taskItem);
+    taskInput.value="";
+ });
+ taskInput.addEventListener('keydown',(event)=>{
+    if(event.key==="Enter"){
+        SubmitButton.click();
+    }
+ })
+    </script>
+</body>
+</html>
